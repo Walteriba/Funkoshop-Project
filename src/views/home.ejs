@@ -1,0 +1,42 @@
+<%- include("partials/header" , { userADMIN: false, pageTittle: "Home", css : "/css/styles.css" }); -%>
+
+<main>
+    <section class="hero">
+    <!-- BANNER -->
+        <!-- la imagen de fondo se puede agregar como background con CSS -->
+        <article class="hero__content container">
+            <div >
+            <h3  class="hero__title "> Nuevos Ingresos</h3>
+            <p  class="hero__text">Descubrí el próximo Funko Pop de tu colección</p>
+            </div>
+        <a  class="hero__link" href="/shop?filter=new">SHOP</a>
+        </article>
+
+    </section>
+
+    <!-- COLECCIONES -->
+
+    <% licences.forEach( lic => { %>
+        
+    <section class="coletion container">
+        <!-- box modeling (modelo de caja) -->
+        <article class="coletion__content">
+        <h3 class="coletion__title"><%= lic.licence_name %></h3>
+        <p class="coletion__text">
+            <%= lic.licence_description %>
+        </p>
+        <a class="coletion__link" href="/shop?filter=licence-<%= lic.licence_id %>">VER COLECCIÓN</a>
+        </article>
+        <picture class="coletion__cover">
+        <img src="/images/<%= lic.licence_image %>" alt="Imagen de la licencia <%= lic.licence_name %>" />
+        </picture>
+    </section>
+
+    <% }); %>
+
+    <%- include("partials/slider",{ items, sliderTitle: "ULTIMOS LANZAMIENTOS"} ); -%>
+
+</main>
+
+<%- include("partials/footer"); -%>
+

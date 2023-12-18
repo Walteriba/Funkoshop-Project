@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles-contact.css" />
+    <title>Contact | Funkoshop</title>
+  </head>
+  <body>
+   <!-- INICIO HEADER-->
+   <header>
+    <nav class="navbar container">
+      <!-- logo dentro de nav pq será un link -->
+      <picture class="navbar__logo">
+        <!-- le da mas semántica a la estructura -->
+        <a href="../index.html">
+          <img
+            src="../images/branding/logo_light_horizontal.svg"
+            alt="Isologo de Funkoshop"
+          />
+        </a>
+      </picture>
+      <ul class="navbar__menu">
+        <li class="navbar__item with__menu">
+          <a class="navbar__link with_icon" href="../pages/shop.html">SHOP <iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
+          <ul class="submenu">
+              <li class="submenu__item">
+                  <a href="" class="submenu__item">Funkos</a></li>
+              <li class="submenu__item">
+                  <a href="" class="submenu__item">Remeras</a></li>
+              <li class="submenu__item">
+                  <a href="" class="submenu__item">Llaveros</a></li>
+          </ul></a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="../pages/contact.html">CONTACTO</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="../pages/admin/login.html">LOGIN</a>
+        </li>
+        <li class="navbar__item">
+          <a  href="../pages/cart.html">
+            <img class="svgcart" src="../images/icons/cart-icon.svg" alt="Icono de carrito" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- FIN  HEADER-->
+     
+    <main class= "container">
+    <div class="contact-flex">
+        <!-- Formulario de contacto -->
+        <form class>
+          <h2>CONTACTO</h2>
+          <div class="input-group">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" placeholder="Nombre">
+            <label for="last-name">Apellido</label>
+            <input type="text" name="last-name" id="last-name" placeholder="Apellido">
+            <label for="phone">Teléfono</label>
+            <input type="tel" name="phone" id="phone" placeholder="Teléfono">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Mensaje"></textarea>
+            <input class="btn" type="submit" value="Enviar">
+
+          </div>
+        </form>
+        <div class="contact-aside">
+          <h2>¿DONDE ESTAMOS?</h2>        
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.701505399601!2d-58.41603192488567!3d-34.58641865658366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb57e23e6ec5d%3A0x3d283ee0849b1f67!2sAv.%20Sta.%20Fe%2C%20C1425%20CABA!5e0!3m2!1ses-419!2sar!4v1700673443820!5m2!1ses-419!2sar" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        
+          <h2>NUESTRAS REDES</h2>
+          <div class="redes-container">
+            <img class="redes" src="../images/icons/redes/facebook_icon.svg" alt="">
+            <img class="redes" src="../images/icons/redes/Instagram_icon.svg" alt="">
+            <img class="redes" src="../images/icons/redes/Youtube_icon.svg" alt="">
+          </div>
+          </div>
+
+      </div>
+    </main>
+    
+   
+    <!-- INICIO FOOTER -->
+    <footer>
+      <nav class="navbar container">
+        <ul class="navbar__item">
+          <li class="navbar__item">
+            <a class="navbar__link" href="../pages/shop.html">SHOP</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link"  href="../pages/admin/login.html">INGRESAR</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="../pages/contact.html">CONTACTO</a>
+          </li>
+        </ul>
+        <!-- logo dentro de nav pq será un link -->
+        <picture>
+          <!-- le da mas semántica a la estructura -->
+          <a href="../index.html">
+            <img
+              src="../images/branding/isotype.svg"
+              alt="Isotipo de Funkoshop"
+            />
+          </a>
+        </picture>
+      </nav>
+    <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
+  </footer>
+  <!-- FIN FOOTER -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  </body>
+</html>

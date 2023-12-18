@@ -1,0 +1,47 @@
+<%- include("../partials/header", { userADMIN: true, pageTittle: "Admin", css : "/css/styles-admin.css"  }); -%>
+
+<main class="container espacio">
+    
+    <div id="admin-search-bar" class="admin-little-container">    
+      <img class="admin-image" src="/images/icons/search_icon.svg" alt="Icono busqueda">
+      <form>
+        <input class="admin-search-field" type="search" name="" id="" placeholder="código, nombre o categoria">
+      </form>
+    </div>
+
+    <div class="admin-little-container ">
+      <h2 class="admin-tittle">LISTADO DE PRODUCTOS</h2> 
+      
+      <a class="admin-add" href="admin/create">
+        <span>AGREGAR</span>
+        <img id="add-image" class="admin-image" src="/images/icons/plus-fill.svg" alt=""></img>
+      </a>
+    </div>
+      
+    <div class="admin-container-grid">   
+      
+      <span class="admin-id">ID</span>
+      <span class="admin-code">Código</span>
+      <span class="admin-name">Nombre del Producto</span>
+      <span class="admin-cat">Categoría</span>
+      
+      <!-- ITEMS -->
+      <% items.forEach(item => { %>
+        <span class="admin-id admin-item"><%= item.product_id %></span>
+        <span class="admin-code admin-item"><%= item.sku %></span>
+        <span class="admin-name admin-item"><%= item.product_name %></span>
+        <span class="admin-cat admin-item"><%= item.category_name %></span>
+        <a class="admin-image admin-item-edit" href="/admin/edit/<%= item.product_id %>"><img class="admin-image admin-item-edit" src="/images/icons/edit_pencil.svg" alt="Editar"></a>
+        <!-- este link se convierte en un boton (y pertenece a un formulario), ya que va por POST, no por GET -->
+        <!-- <a class="admin-image admin-item-delete" href="/admin/delete/<%= item.product_id %>"><img  src="/images/icons/delete_trash.svg" alt="Borrar"></a> -->
+        <form action="/admin/delete/<%= item.product_id %>?_method=DELETE" method="POST">
+            <button class="admin-image admin-item-delete" type="submit">
+                <img src="/images/icons/delete_trash.svg" alt="Borrar">
+            </button>
+        </form>
+        <% }); %>
+    </div>
+
+</main>
+
+<%- include("../partials/footer"); -%>

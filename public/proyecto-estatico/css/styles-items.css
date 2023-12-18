@@ -1,0 +1,114 @@
+@import '../css/styles.css';
+
+/* Item Seleccionado */
+
+.container{ max-width: 1200px;
+    margin: 0 auto; /* top/bottom:0 y left/right: igualados */
+    padding: 0 var(--spacing-128);
+}
+
+
+
+.container header footer { /* clase utilitaria para setear estilos de los contenedores ppales */
+    max-width: 1200px;
+    margin: 0 auto; /* top/bottom:0 y left/right: igualados */
+}
+
+
+.producto{
+    display:grid;
+    grid-template-areas: "imagenyoda imagenyoda imagenyoda propiedades propiedades";
+    align-items: center;
+    padding: var(--spacing-16) var(--spacing-128);
+    
+}
+
+ .producto__content{display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+    align-items:start;
+    padding: var(--font-small) ;
+    margin: var(--font-small);
+    grid-area:propiedades
+    } 
+
+.producto__cover{
+    grid-area:imagenyoda
+}
+
+.producto__content__license{font-size: var(--font-small) ;
+    font-weight:500;
+}
+
+.producto__content__name{
+    font-size: var(--font-jumbo);
+    font-weight:700 ;
+}
+
+.producto__content__description{
+    font-size: var(--font-medium);
+    font-weight:600 ;
+}
+
+.producto__content__price{
+    font-size: var(--font-xlarge);
+    color:var(--dark-solid);
+   }
+
+.producto_content_sell{
+    display:flex;
+    align-items: center;
+ }
+
+.producto_content_sell_cant{text-align: center;
+font-size: var(--font-medium);
+height:2.5em
+}
+
+
+.producto_content_sell_seletion {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2px;
+  }
+  
+   .pay_item {
+    cursor: pointer;
+    font-size: var(--font-medium);
+    text-align: center;
+    background-color: var(--dark-bg-solid);
+    color: var(--light-font-solid);
+    width: 1.1em;
+    height: 1.1em;
+    margin: 1px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: none; 
+  } 
+
+
+.producto_tag{ 
+    font-size: var(--font-small);
+    background-color:var(--primary-solid) ;
+    color:var(--light-font-solid);
+    margin: var(--spacing-8);
+    padding: var(--spacing-12);
+    border :none;
+    cursor: pointer;
+    transition: background .3s ease-in-out;
+ }
+
+ .producto_tag:hover{
+    background-color: var(--hover-option1);
+ }
+
+ .producto_promo{
+    color: var(--secondary-solid);
+    font-weight: 700;
+ }
+
+ .producto_promo_met{
+    border-bottom:solid var(--secondary-solid) 1px;
+ }
+

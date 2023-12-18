@@ -1,0 +1,209 @@
+@import '../css/styles.css';
+
+button{
+    border: none;
+    background-color: inherit;
+}
+.main_cart{
+   margin-top: var(--spacing-68);
+   margin-bottom: var(--spacing-68);
+}
+
+/* Titulos */
+.cart_tittle{
+    display: inline-block;
+    font: var(--alternative-font);
+    font-weight: 700;
+    font-size: var(--font-xlarge);
+    border-bottom: 3px solid var(--primary-solid);
+    padding: 0px 0px 8px 0px;
+}
+
+/* Contenedores genericos */
+.rad_shad_container{
+    border-radius: 10px;
+    background-color: var(--light-bg-solid);
+    box-shadow: 0px 0px 10px 0px #00000040;
+    padding: var( --spacing-8);
+    margin-top: var(--spacing-12);
+    margin-bottom: var(--spacing-12);
+}
+
+.rad_shad_container.cart_item{
+    display: flex;
+    padding: 16px;
+    border-radius: 25px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-28);
+}
+
+/* Contenedor item */
+.cart_item_description{
+    width: 40%;
+    height: 10%;
+    display: flex;
+    align-items: center; 
+}
+
+.cart_item_description_img{
+    width: 40%;
+    margin-right: 10px;
+}
+
+.cart_item_description_detail {
+    height: 12em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.cart_item_tittle{   
+    font-size: var(--font-medium);
+    font-weight: 700;
+    margin-bottom: 0.4em;
+}
+
+.cart_item_franchise{
+    font-size: var(--font-small);
+    font-weight: 500;
+    color: #30343F;
+}
+
+.cart_item_price{
+    /* margin-top: 25%; */
+    font-size: var(--font-small);
+    font-weight: 400;
+    color: #333333;
+    margin-top: auto; 
+}
+
+/* Control Cantidad */
+.custom-input {
+    display: flex;
+    align-items: center;
+  }
+
+  .custom-text {
+    width: 4.5em;
+    height: 2.2em;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 0 5px; 
+  }
+  
+  .custom-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .custom-decrement,
+  .custom-increment {
+    cursor: pointer;
+    font-size: var(--font-medium);
+    text-align: center;
+    background-color: var(--control-1);
+    color: var(--light-font-solid);
+    width: 1.3em;
+    height: 1.15em;
+    margin: 1px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border: none;
+    transition: background .3s ease-in-out; 
+  } 
+
+  .custom-decrement:hover,
+  .custom-increment:hover {
+    background-color: var(--hover-option1);
+  } 
+
+  .custom-decrement:active,
+  .custom-increment:active  {
+    background-color: var(--primary-900);
+    transition: background .3s ease-in-out; 
+    }
+
+  .delete_item_svg{
+   cursor: pointer;
+  }
+
+  .delete_item_svg:hover path {
+    fill: var(--hover-option1) 
+  }
+
+
+/* Textos */
+.primary_text{
+    display: flex;
+    justify-content: space-between;
+    font: var(--base-font);
+    font-size: var(--font-small);
+    font-weight: 700;
+    padding: var(--spacing-8);
+}
+
+.secondary_text{
+    color: var(--secodary-color);
+}
+
+.total_text_item{ /* Es el total de la suma de los items iguales en el carrito */
+    font-size: var(--font-medium);
+    font-weight: 400;
+}
+
+/* Resumen */
+.resume{
+    width: 45%;
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 55%;
+    padding-top: var(--spacing-36);
+    padding-bottom: var(--spacing-36);
+}
+
+.pay{
+    font: var(--base-font);
+    font-size: var(--font-medium);
+    background-color: var(--primary-solid);
+    font-weight: 600;
+    color: var(--light-font-solid);
+    padding: 10px 20px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background .3s ease-in-out; 
+    }
+    
+.pay:hover {
+    background-color: var(--hover-option1); 
+    }
+    
+
+.pay:active {
+    background-color: var(--primary-900); 
+    }
+
+/* id */
+#titulo_carritodecompras{
+margin-bottom: var(--spacing-28);
+}
+
+#det_can_tot{
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr; 
+    align-items: center;
+    padding-left: 10em;
+}
+
+#resume_tittle{
+    align-self: flex-end;
+}
+
+#total{
+    border-top: 2px solid #FF3333;
+    font-weight: 700;
+}

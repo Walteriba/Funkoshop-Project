@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/styles-admin.css">
+
+    <title>Admin | Funkoshop</title>
+  </head>
+  <body>
+    <!-- INICIO HEADER-->
+  <header>
+    <nav class="navbar container">
+      <!-- logo dentro de nav pq será un link -->
+      <picture class="navbar__logo">
+        <!-- le da mas semántica a la estructura -->
+        <a href="../../index.html">
+          <img
+            src="../../images/branding/logo_light_horizontal.svg"
+            alt="Isologo de Funkoshop"
+          />
+        </a>
+      </picture>
+      <ul class="navbar__menu--admin">
+        <li class="navbar__item with__menu">
+          <a class="navbar__link with_icon" href="../../pages/shop.html">VER TIENDA</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="../../pages/admin/admin.html">ADMIN</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="../../pages/admin/login.html">SALIR</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- FIN  HEADER-->
+
+  <main class="container espacio">
+    
+    <div id="admin-search-bar" class="admin-little-container">    
+      <img class="admin-image" src="../../images/icons/search_icon.svg" alt="Icono busqueda">
+      <form>
+        <input class="admin-search-field" type="search" name="" id="" placeholder="código, nombre o categoria">
+      </form>
+    </div>
+
+    <div class="admin-little-container ">
+      <h2 class="admin-tittle">LISTADO DE PRODUCTOS</h2> 
+      
+      <a class="admin-add" href="../../pages/admin/create.html">
+        <span>AGREGAR</span>
+        <img id="add-image" class="admin-image" src="../../images/icons/plus-fill.svg" alt=""></img>
+      </a>
+    </div>
+      
+    <div class="admin-container-grid">   
+      
+      <span class="admin-id">ID</span>
+      <span class="admin-code">Código</span>
+      <span class="admin-name">Nombre del Producto</span>
+      <span class="admin-cat">Categoria</span>
+      
+      <!-- ITEMS -->
+      <span class="admin-id admin-item">1</span>
+      <span class="admin-code admin-item">STW001001</span>
+      <span class="admin-name admin-item">Baby Yoda Blueball </span>
+      <span class="admin-cat admin-item">STAR WARS</span>
+      <a class="admin-image admin-item-edit" href="../admin/edit.html"><img class="admin-image admin-item-edit" src="../../images/icons/edit_pencil.svg" alt="Editar"></a>
+      <a class="admin-image admin-item-delete" href=""><img  src="../../images/icons/delete_trash.svg" alt="Borrar"></a>
+
+      <span class="admin-id admin-item">10</span>
+      <span class="admin-code admin-item">HPT001001</span>
+      <span class="admin-name admin-item">Harry Potter & Hegwid</span>
+      <span class="admin-cat admin-item">HARRY POTTER</span>
+      <a class="admin-image admin-item-edit" href="../admin/edit.html"><img class="admin-image admin-item-edit" src="../../images/icons/edit_pencil.svg" alt="Editar"></a>
+      <a class="admin-image admin-item-delete" href=""><img  src="../../images/icons/delete_trash.svg" alt="Borrar"></a>
+      
+    
+    </div>
+
+  </main>
+  
+  <!-- INICIO FOOTER -->
+  <footer>
+    <nav class="navbar container">
+      <ul class="navbar__item">
+        <li class="navbar__item">
+          <a class="navbar__link" href="../../pages/shop.html">SHOP</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link"  href="../../pages/admin/register.html">REGISTRARSE</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link"  href="../../pages/admin/login.html">INGRESAR</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="../../pages/contact.html">CONTACTO</a>
+        </li>
+      </ul>
+      <!-- logo dentro de nav pq será un link -->
+      <picture>
+        <!-- le da mas semántica a la estructura -->
+        <a href="../../index.html">
+          <img
+            src="../../images/branding/isotype.svg"
+            alt="Isotipo de Funkoshop"
+          />
+        </a>
+      </picture>
+    </nav>
+  <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
+  </footer>
+  <!-- FIN FOOTER -->
+  </body>
+</html>

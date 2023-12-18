@@ -1,0 +1,76 @@
+<%- include("../partials/header", { userADMIN: true, pageTittle: "Edit", css : "/css/styles-create-edit.css"  }); -%>
+
+<form action="/admin/edit/<%= item.product_id %>?_method=PUT" method="post" enctype="multipart/form-data">
+
+    <section class="crear_container1">
+      <h1>EDITAR ITEM</h1>
+      <div class="divisor1">
+          <div>
+              <label class="letra categoria">Categoría:  </label>
+              <select name="category" id="selector_categoria">
+                <% categories.forEach((category, i) => { %>
+                  <option <% if (item.category_id === i +1) { %>selected<% } %> value="<%= i+1%>"><%= category.category_name%></option>
+              <% }); %>
+              </select>
+  
+          </div>
+          <div>
+              <label class="letra licencia">Licencia:  </label>
+              <select name="licence" id="selector_licencia">
+                <% licences.forEach((licence, i) => { %>
+                  <option <% if (item.licence_id === i +1) { %>selected<% } %> value="<%= i+1%>"><%= licence.licence_name%></option>
+              <% }); %>
+              </select>
+  
+          </div>
+      </div>
+      <div class="divisor2">
+      <p class="letra nombre_producto">Nombre del producto:</p>
+      <input type="text" name="name" id="nombre_producto" value="<%= item.product_name %>" placeholder="nombre del producto" maxlength="100">
+      </div>
+      <textarea class="descripcion" name="description" id="comentario" cols="60" rows="10" maxlength="600" placeholder="Descripción del producto"><%= item.product_description %></textarea>
+      
+
+      <div class="divisor2">
+          <p class="letra sku">SKU:</p>
+          <input type="text" name="sku" id="ingreso_sku"  value="<%= item.sku %>"placeholder="código Stock-keeping unit" maxlength="11">
+          <p class="letra precio">Precio:</p>
+          <input type="number" name="price" id="ingreso_precio"  value="<%= item.price %>" placeholder="0,00" min="0" max="9.999,99">
+          <p class="letra stock">Stock:</p>
+          <input type="number" name="stock" id="ingreso_stock"  value="<%= item.stock %>" placeholder="0" min="0" max="1000">
+          <p class="letra texto_derecha">unidades</p>
+      </div>
+
+      <div class="divisor3">
+          <p class="letra descuento">Descuento:</p>
+          <input type="number" name="discount" id="ingreso_descuento"  value="<%= item.discount %>" placeholder="0 %" min="0" max="100">
+          <p class="letra texto_derecha">%</p>
+          <label class="letra cuotas">Cuotas:  </label>
+              <select name="dues" id="selector_cuotas">
+                  <!-- <option value="" disabled selected hidden>3 Cuotas sin interés</option> -->
+                  <option <% if (item.dues === 0) { %>selected<% } %> value="0">Sin cuotas</option>
+                  <option <% if (item.dues === 3) { %>selected<% } %> value="3">3 cuotas sin interés</option>
+                  <option <% if (item.dues === 6) { %>selected<% } %> value="6">6 cuotas sin interés</option>
+                  <option <% if (item.dues === 9) { %>selected<% } %> value="9">9 cuotas sin interés</option>
+                  <option <% if (item.dues === 12) { %>selected<% } %> value="12">12 cuotas sin interés</option>                  
+              </select>
+      </div>
+
+      <div class="letra imagenes">Imágenes: <input type="file" name="images" id="img" multiple></div>
+      <div class="admin-img-container">
+        <figure>
+          <img class="admin-edit-img " src="/images/<%= item.image_front %>" alt="Frente" >
+          <figcaption>Frente</figcaption>
+        </figure>
+        <figure>
+          <img class="admin-edit-img" src="/images/<%= item.image_back %>" alt="Dorso">
+          <figcaption class="admin-edit-img-d">Dorso</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="botones_container1">
+      <input class="boton agregar_producto" type="submit" value="Modificar Producto">
+    </section>
+</form>
+
+<%- include("../partials/footer"); -%>
