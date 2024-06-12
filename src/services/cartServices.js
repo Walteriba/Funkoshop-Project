@@ -1,16 +1,16 @@
 const { getOne } = require("../models/itemsModels");
 
-// Carrito temporal
 let shoppingCart = [];
 
 const getCart = () => {
-  return shoppingCart;
+  const cart = shoppingCart;
+  return cart;
 };
 
 const addItemCart = async (id, quantity) => {
   try {
     const item = await getOne({ product_id: id });
-    const data = {
+    data = {
       cart_quantity: Number(quantity),
       product_id: item.product_id,
       product_name: item.product_name,
@@ -35,18 +35,18 @@ const addItemCart = async (id, quantity) => {
 const updateCart = (id, quantity) => {
   const _product_id = parseInt(id);
   const _quantity = parseInt(quantity);
-  const index = shoppingCart.findIndex((item) => item.product_id === _product_id);
-  if (index !== -1) {
-    shoppingCart[index].cart_quantity = _quantity;
-  }
+  const index = shoppingCart.findIndex(
+    (item) => item.product_id == _product_id
+  );
+  shoppingCart[index].cart_quantity = _quantity;
 };
 
 const deleteItemToCart = (id) => {
   const _product_id = parseInt(id);
-  const index = shoppingCart.findIndex((item) => item.product_id === _product_id);
-  if (index !== -1) {
-    shoppingCart.splice(index, 1);
-  }
+  const index = shoppingCart.findIndex(
+    (item) => item.product_id == _product_id
+  );
+  shoppingCart.splice(index, 1);
 };
 
 module.exports = {
@@ -55,4 +55,3 @@ module.exports = {
   updateCart,
   deleteItemToCart,
 };
-
