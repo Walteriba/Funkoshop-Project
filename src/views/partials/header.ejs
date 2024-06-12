@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href= <%= css  %> />
+    <link rel="stylesheet" href="<%" ="css" % />
+    />
 
-    <title> <%= pageTittle  %> | Funkoshop</title>
+    <title><%= pageTittle %> | Funkoshop</title>
 
-    <link rel="icon" type="image/x-icon" href="/images/branding/isotype.svg">
+    <link rel="icon" type="image/x-icon" href="/images/branding/isotype.svg" />
   </head>
   <body>
     <!-- INICIO HEADER-->
@@ -25,12 +26,10 @@
           </a>
         </picture>
 
-        <% if (userADMIN) { %>
-            <%- include("../partials/adminNavbar"); -%>
-          <%} else { %>
-            <%- include("../partials/defaultNavbar"); -%>
-        <% } %>
-       
+        <% if (userADMIN) { %> <%- include("../partials/adminNavbar"); -%> <%}
+        else { %> <%- include("../partials/defaultNavbar"); -%> <% } %>
       </nav>
     </header>
     <!-- FIN  HEADER-->
+  </body>
+</html>

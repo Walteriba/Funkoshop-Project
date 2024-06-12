@@ -1,66 +1,116 @@
-<%- include("../partials/header", { userADMIN: true, pageTittle: "Create", css : "/css/styles-create-edit.css" }); -%>
+<%- include("../partials/header", { userADMIN: true, pageTittle: "Create", css :
+"/css/styles-create-edit.css" }); -%>
 
 <form action="/admin/create" method="post" enctype="multipart/form-data">
-
-    <section class="crear_container1">
-      <h1>CREAR NUEVO ITEM</h1>
-      <div class="divisor1">
-          <div>
-              <label class="letra categoria">Categoría:  </label>
-              <select name="category" id="selector_categoria">
-                <option value="" disabled selected hidden>Seleccionar</option>
-                <% categories.forEach((category, i) => { %>
-                  <option value="<%= category.category_id %>"><%= category.category_name%></option>
-              <% }); %>
-              </select>
-          </div>
-          <div>
-              <label class="letra licencia">Licencia:  </label>
-              <select name="licence" id="selector_licencia">
-                <option value="" disabled selected hidden>Seleccionar</option>
-                <% licences.forEach((licence, i) => { %>
-                  <option value="<%= licence.licence_id %>"><%= licence.licence_name%></option>
-              <% }); %>
-              </select>
-          </div>
+  <section class="crear_container1">
+    <h1>CREAR NUEVO ITEM</h1>
+    <div class="divisor1">
+      <div>
+        <label class="letra categoria">Categoría: </label>
+        <select name="category" id="selector_categoria">
+          <option value="" disabled selected hidden>Seleccionar</option>
+          <% categories.forEach((category, i) => { %>
+          <option value="<%= category.category_id %>">
+            <%= category.category_name%>
+          </option>
+          <% }); %>
+        </select>
       </div>
-      <div class="divisor2">
+      <div>
+        <label class="letra licencia">Licencia: </label>
+        <select name="licence" id="selector_licencia">
+          <option value="" disabled selected hidden>Seleccionar</option>
+          <% licences.forEach((licence, i) => { %>
+          <option value="<%= licence.licence_id %>">
+            <%= licence.licence_name%>
+          </option>
+          <% }); %>
+        </select>
+      </div>
+    </div>
+    <div class="divisor2">
       <p class="letra nombre_producto">Nombre del producto:</p>
-      <input type="text" name="name" id="nombre_producto" placeholder="Nombre del producto" maxlength="100">
-      </div>
-      <textarea class="descripcion" name="description" id="comentario" cols="60" rows="10" maxlength="600"  placeholder="Descripción del producto"></textarea>
-      
+      <input
+        type="text"
+        name="name"
+        id="nombre_producto"
+        placeholder="Nombre del producto"
+        maxlength="100"
+      />
+    </div>
+    <textarea
+      class="descripcion"
+      name="description"
+      id="comentario"
+      cols="60"
+      rows="10"
+      maxlength="600"
+      placeholder="Descripción del producto"
+    ></textarea>
 
-      <div class="divisor2">
-          <p class="letra sku">SKU:</p>
-          <input type="text" name="sku" id="ingreso_sku" placeholder="SSK111AB001" maxlength="11">
-          <p class="letra precio">Precio:</p>
-          <input type="number" name="price" id="ingreso_precio" placeholder="0000,00" min="0" max="9.999,99">
-          <p class="letra stock">Stock:</p>
-          <input type="number" name="stock" id="ingreso_stock" placeholder="0" min="0" max="1000">
-          <p class="letra texto_derecha">unidades</p>
-      </div>
+    <div class="divisor2">
+      <p class="letra sku">SKU:</p>
+      <input
+        type="text"
+        name="sku"
+        id="ingreso_sku"
+        placeholder="SSK111AB001"
+        maxlength="11"
+      />
+      <p class="letra precio">Precio:</p>
+      <input
+        type="number"
+        name="price"
+        id="ingreso_precio"
+        placeholder="0000,00"
+        min="0"
+        max="9.999,99"
+      />
+      <p class="letra stock">Stock:</p>
+      <input
+        type="number"
+        name="stock"
+        id="ingreso_stock"
+        placeholder="0"
+        min="0"
+        max="1000"
+      />
+      <p class="letra texto_derecha">unidades</p>
+    </div>
 
-      <div class="divisor3">
-          <p class="letra descuento">Descuento:</p>
-          <input type="number" name="discount" id="ingreso_descuento" placeholder="0 %" min="0" max="100">
-          <label class="letra cuotas">Cuotas:  </label>
-          <select name="dues" id="selector_cuotas">
-              <option value="" disabled selected hidden>Seleccionar</option>
-              <option value="0">Sin cuotas</option>
-              <option value="3">3 cuotas sin interés</option>
-              <option value="6">6 cuotas sin interés</option>
-              <option value="9">9 cuotas sin interés</option>
-              <option value="12">12 cuotas sin interés</option>                  
-          </select>
-      </div>
+    <div class="divisor3">
+      <p class="letra descuento">Descuento:</p>
+      <input
+        type="number"
+        name="discount"
+        id="ingreso_descuento"
+        placeholder="0 %"
+        min="0"
+        max="100"
+      />
+      <label class="letra cuotas">Cuotas: </label>
+      <select name="dues" id="selector_cuotas">
+        <option value="" disabled selected hidden>Seleccionar</option>
+        <option value="0">Sin cuotas</option>
+        <option value="3">3 cuotas sin interés</option>
+        <option value="6">6 cuotas sin interés</option>
+        <option value="9">9 cuotas sin interés</option>
+        <option value="12">12 cuotas sin interés</option>
+      </select>
+    </div>
 
-      <div class="letra imagenes">Imágenes: <input type="file" name="images" id="img" multiple></div>
-    </section>
-    <section class="botones_container1">
-      <input class="boton agregar_producto" type="submit" value="Agregar Producto">
-      <input class="boton limpiar" type="reset" value="Limpiar">
-    </section>
+    <div class="letra imagenes">
+      Imágenes: <input type="file" name="images" id="img" multiple />
+    </div>
+  </section>
+  <section class="botones_container1">
+    <input
+      class="boton agregar_producto"
+      type="submit"
+      value="Agregar Producto"
+    />
+    <input class="boton limpiar" type="reset" value="Limpiar" />
+  </section>
 </form>
 
 <%- include("../partials/footer"); -%>

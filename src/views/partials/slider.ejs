@@ -1,18 +1,24 @@
-
-
 <section class="slider container glide">
-    <h2 class="slider__title"><%= sliderTitle %></h2>
-    <div class="glide__track" data-glide-el="track">
+  <h2 class="slider__title"><%= sliderTitle %></h2>
+  <div class="glide__track" data-glide-el="track">
     <ul class="slider__items">
-        <% items.forEach(item => { %>
-            <!-- CARD -->
-            <%- include("../partials/card", { item }); -%> 
-          
-          <% }); %>
+      <% items.forEach(item => { %>
+      <!-- CARD -->
+      <%- include("../partials/card", { item }); -%> <% }); %>
     </ul>
-    </div>
-    <div class="glide__arrows" data-glide-el="controls">
-        <button  class="glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon class="iconify-icon-per" icon="jam:chevron-left"></iconify-icon></button>
-        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon class="iconify-icon-per" icon="jam:chevron-right"></iconify-icon></button>
-    </div>
+  </div>
+  <div class="glide__arrows" data-glide-el="controls">
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+      <iconify-icon
+        class="iconify-icon-per"
+        icon="jam:chevron-left"
+      ></iconify-icon>
+    </button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+      <iconify-icon
+        class="iconify-icon-per"
+        icon="jam:chevron-right"
+      ></iconify-icon>
+    </button>
+  </div>
 </section>

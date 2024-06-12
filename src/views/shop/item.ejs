@@ -1,44 +1,53 @@
-<%- include("../partials/header" , { userADMIN: false, pageTittle: "Item", css : "/css/styles-item.css"  }); -%>
+<%- include("../partials/header" , { userADMIN: false, pageTittle: "Item", css :
+"/css/styles-item.css" }); -%>
 
 <main>
-    <section class="producto container">
-      <article class="producto__content">
-        <p class="producto__content__license"><%= item.licence_name %></p> <!-- La licencia retorna un número, hay que ver -->
-        <h3 class="producto__content__name"><%= item.product_name %></h3>
-        <p class="producto__content__description"><%= item.product_description %></p>
-        <p class="producto__content__price">$ <%= item.price %></p>
-          
-        <%
-        var itemFoundInCart = carrito.find(function(cartItem) {
-            return cartItem.product_id === item.product_id;
-        });
-        
-        if (!itemFoundInCart) {
-        %>
+  <section class="producto container">
+    <article class="producto__content">
+      <p class="producto__content__license"><%= item.licence_name %></p>
+      <!-- La licencia retorna un número, hay que ver -->
+      <h3 class="producto__content__name"><%= item.product_name %></h3>
+      <p class="producto__content__description">
+        <%= item.product_description %>
+      </p>
+      <p class="producto__content__price">$ <%= item.price %></p>
 
-          <form class="producto_content_sell" action="/shop/item/add/<%= item.product_id %>" method="POST">
-          
-            <input class="producto_content_sell_cant" type="text" id="campo_numerico" name="quantity" value="1"/>
-            
-            <div class="producto_content_sell_seletion">
-              <button id="add" class="pay_item" type="button">+</button>
-              <button id="subtract" class="pay_item" type="button">-</button>
-            </div>
-            
-            <button type="submit" class="producto_tag">Agregar al Carrito</button> 
+      <% var itemFoundInCart = carrito.find(function(cartItem) { return
+      cartItem.product_id === item.product_id; }); if (!itemFoundInCart) { %>
 
-          </form>
+      <form
+        class="producto_content_sell"
+        action="/shop/item/add/<%= item.product_id %>"
+        method="POST"
+      >
+        <input
+          class="producto_content_sell_cant"
+          type="text"
+          id="campo_numerico"
+          name="quantity"
+          value="1"
+        />
 
-          <% } else { %> 
-          
-            <div class="producto_added" >Este producto ya está en tu carrito</div>
+        <div class="producto_content_sell_seletion">
+          <button id="add" class="pay_item" type="button">+</button>
+          <button id="subtract" class="pay_item" type="button">-</button>
+        </div>
 
-          <% };%>
-          
+        <button type="submit" class="producto_tag">Agregar al Carrito</button>
+      </form>
 
-        <p class="producto_promo"><a class="producto_promo_met" href="#">Ver métodos de pago</a> - <%= item.dues %> CUOTAS SIN INTERÉS</p>
-      </article>
-      <picture class="card-item__cover producto__cover">
+      <% } else { %>
+
+      <div class="producto_added">Este producto ya está en tu carrito</div>
+
+      <% };%>
+
+      <p class="producto_promo">
+        <a class="producto_promo_met" href="#">Ver métodos de pago</a> - <%=
+        item.dues %> CUOTAS SIN INTERÉS
+      </p>
+    </article>
+    <picture class="card-item__cover producto__cover">
       <img
         class="card-item__ima-front"
         src="/images/<%= item.image_front %>"
@@ -50,11 +59,10 @@
         alt=" Figura <%= item.product_name %>"
       />
     </picture>
-    </section>
+  </section>
 
-    <%- include("../partials/slider",{ items, sliderTitle: "PRODUCTOS RELACIONADOS"} ); -%>
-       
-  </main>
+  <%- include("../partials/slider",{ items, sliderTitle: "PRODUCTOS
+  RELACIONADOS"} ); -%>
+</main>
 
 <%- include("../partials/footer"); -%>
-
