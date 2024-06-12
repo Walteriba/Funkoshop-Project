@@ -1,5 +1,7 @@
-const path = require("path");
+const path = require("path")
 
-const NotFound = (req, res) => res.status(404).render("404");
+const NotFound = ((req, res) => (
+    res.status(404).render("404")
+));
 
-module.exports = NotFound;
+module.exports = NotFound

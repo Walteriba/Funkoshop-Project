@@ -1,87 +1,119 @@
-<%- include("../partials/header" , { userADMIN: false, pageTittle: "Shop", css :
-"/css/styles-shop.css" }); -%>
+<%- include("../partials/header" , { userADMIN: false, pageTittle: "Shop", css : "/css/styles-shop.css" }); -%>
 
 <!-- CONTROLES Y FILTROS -->
 <div class="shop-section container">
-  <section class="filter">
-    <div class="filters__opt">
-      <label class="opt__label" for="findByItemOrCat">Buscar</label>
-      <input
-        class="find-input"
-        type="text"
-        name="findByItemOrCat"
-        id="findByItemOrCat"
-        placeholder="item o categoría"
-      />
-    </div>
-    <div class="filters__opt">
-      <label class="opt__label" for="orderBy">Ordenar Por</label>
-      <select class="find-input" name="orderBy" id="orderBy">
-        <option id="1" selected>Mayor a Menor</option>
-        <option id="2">Menor a Mayor</option>
-      </select>
-    </div>
-    <div class="filters__opt">
-      <label class="opt__label" for="price">Precio</label>
-      <div class="filters__opt--range medium">
-        <label class="range-label" for="Min">Min</label>
-        <input class="range-input opt__label" type="number" placeholder="0" />
-        <span class="range-separator">-</span>
-        <label class="range-label" for="Min">Max</label>
-        <input class="range-input opt__label" type="number" placeholder="0" />
+    <section class="filter">
+      <div class="filters__opt">
+        <label class="opt__label" for="findByItemOrCat">Buscar</label>
+        <input
+          class="find-input"
+          type="text"
+          name="findByItemOrCat"
+          id="findByItemOrCat"
+          placeholder="item o categoría"
+        />
       </div>
-    </div>
-    <div class="filters__opt">
-      <label class="opt__label" for="filterOpt">Filtrar</label>
-      <div class="checkbox__opts">
-        <div class="checkbox__opt">
-          <input type="checkbox" id="filterOpt" name="filterOpt" value="1" />
-          <label for="filterOpt">Nuevos</label>
-        </div>
-        <div class="checkbox__opt">
-          <input type="checkbox" id="filterOpt" name="filterOpt" value="1" />
-          <label for="filterOpt">Ofertas</label>
-        </div>
-        <div class="checkbox__opt">
-          <input type="checkbox" id="filterOpt" name="filterOpt" value="1" />
-          <label for="filterOpt">Edicion Especial</label>
-        </div>
-        <div class="checkbox__opt">
-          <input type="checkbox" id="filterOpt" name="filterOpt" value="1" />
-          <label for="filterOpt">Favoritos</label>
+      <div class="filters__opt">
+        <label class="opt__label" for="orderBy">Ordenar Por</label>
+        <select class="find-input" name="orderBy" id="orderBy">
+          <option id="1" selected>Mayor a Menor</option>
+          <option id="2">Menor a Mayor</option>
+        </select>
+      </div>
+      <div class="filters__opt">
+        <label class="opt__label" for="price">Precio</label>
+        <div class="filters__opt--range medium">
+          <label class="range-label" for="Min">Min</label>
+          <input
+            class="range-input opt__label"
+            type="number"
+            placeholder="0"
+          />
+          <span class="range-separator">-</span>
+          <label class="range-label" for="Min">Max</label>
+          <input
+            class="range-input opt__label"
+            type="number"
+            placeholder="0"
+          />
         </div>
       </div>
-    </div>
-  </section>
+      <div class="filters__opt">
+        <label class="opt__label" for="filterOpt">Filtrar</label>
+        <div class="checkbox__opts">
+          <div class="checkbox__opt">
+            <input
+              type="checkbox"
+              id="filterOpt"
+              name="filterOpt"
+              value="1"
+            />
+            <label for="filterOpt">Nuevos</label>
+          </div>
+          <div class="checkbox__opt">
+            <input
+              type="checkbox"
+              id="filterOpt"
+              name="filterOpt"
+              value="1"
+            />
+            <label for="filterOpt">Ofertas</label>
+          </div>
+          <div class="checkbox__opt">
+            <input
+              type="checkbox"
+              id="filterOpt"
+              name="filterOpt"
+              value="1"
+            />
+            <label for="filterOpt">Edicion Especial</label>
+          </div>
+          <div class="checkbox__opt">
+            <input
+              type="checkbox"
+              id="filterOpt"
+              name="filterOpt"
+              value="1"
+            />
+            <label for="filterOpt">Favoritos</label>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- ITEMS -->
-  <main class="items">
-    <ul class="list-items">
-      <% items.forEach(item => { %>
+    <!-- ITEMS -->
+    <main class="items">
+      <ul class="list-items">
 
-      <!-- CARD -->
-      <%- include("../partials/card", { item }); -%> <% }); %>
-    </ul>
+        <% items.forEach(item => { %>
+          
+          <!-- CARD -->
+          <%- include("../partials/card", { item }); -%> 
+        
+        <% }); %>
 
-    <!-- PAGINADO -->
-    <lu class="pages">
-      <a href="">
-        <li class="pages__opt">
-          <iconify-icon icon="mdi:chevron-left"></iconify-icon>
-        </li>
-      </a>
-      <a href=""> <li class="pages__opt">1</li> </a>
-      <a href=""> <li class="pages__opt">2</li></a>
-      <a href=""><li class="pages__opt">...</li></a>
-      <a href=""><li class="pages__opt">9</li></a>
-      <a href=""><li class="pages__opt">10</li></a>
-      <a href="">
-        <li class="pages__opt">
-          <iconify-icon icon="mdi:chevron-right"></iconify-icon>
-        </li>
-      </a>
-    </lu>
-  </main>
+      </ul>
+    
+
+      <!-- PAGINADO -->
+      <lu class="pages">
+        <a href="">
+          <li class="pages__opt">
+            <iconify-icon icon="mdi:chevron-left"></iconify-icon>
+          </li>
+        </a>
+        <a href=""> <li class="pages__opt">1</li> </a>
+        <a href=""> <li class="pages__opt">2</li></a>
+        <a href=""><li class="pages__opt">...</li></a>
+        <a href=""><li class="pages__opt">9</li></a>
+        <a href=""><li class="pages__opt">10</li></a>
+        <a href="">
+          <li class="pages__opt">
+            <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+          </li>
+        </a>
+      </lu>
+    </main>
 </div>
 
 <%- include("../partials/footer"); -%>

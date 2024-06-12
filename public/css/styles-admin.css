@@ -1,103 +1,103 @@
-@import "../css/styles.css";
+@import '../css/styles.css';
 
 /* NAVBAR QUE SE IMPORTA A LAS DEMAS PAGINAS DE ADMIN */
 .navbar__menu--admin {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-24);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-24);
 }
 
 .admin-image {
-  width: 30px;
+    width: 30px;
 }
 
-.admin-little-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: var(--spacing-24);
-  gap: 10px;
+.admin-little-container  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--spacing-24);
+    gap: 10px;
 }
 
-#admin-search-bar {
-  display: inline-flex;
+#admin-search-bar{
+    display: inline-flex;
 }
 
 .admin-search-field {
-  width: 400px;
-  border-radius: 6px;
-  border: 2px solid #30343f;
-  padding: 5px 10px;
-  font-family: var(--base-font);
-  font-size: var(--font-medium);
-  font-weight: 500;
+    width: 400px;
+    border-radius: 6px ;
+    border: 2px solid #30343F;
+    padding: 5px 10px;
+    font-family: var(--base-font);
+    font-size: var(--font-medium);
+    font-weight: 500;
 }
 
 .admin-tittle {
-  font-family: var(--alternative-font);
-  font-size: var(--font-jumbo);
-  font-weight: 700;
-  letter-spacing: 0.04em;
+    font-family: var(--alternative-font);
+    font-size: var(--font-jumbo);
+    font-weight: 700; 
+    letter-spacing: 0.04em;
 }
 
 .admin-add {
-  display: flex;
-  align-items: center;
-  font-family: var(--base-font);
-  font-size: var(--font-large);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    font-family: var(--base-font);
+    font-size: var(--font-large);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    gap: 10px;
 }
 
 #add-image {
-  filter: invert(67%) sepia(86%) saturate(7427%) hue-rotate(341deg)
-    brightness(112%) contrast(112%);
+    filter: invert(67%) sepia(86%) saturate(7427%) hue-rotate(341deg) brightness(112%) contrast(112%);
 }
 
 /* GRID PARA EL INVENTARIO DE PRODUCTOS */
 .admin-container-grid {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(auto-fill);
-  gap: 15px;
-  padding-top: var(--spacing-24);
-  padding-bottom: var(--spacing-24);
-  padding-left: var(--spacing-24);
-  font-family: var(--base-font);
-  font-size: var(--font-large);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  align-items: center;
+    display: grid;
+    grid-template-columns:repeat(16, 1fr) ;
+    grid-template-rows: repeat(auto-fill) ;
+    gap: 15px;
+    padding-top: var(--spacing-24);
+    padding-bottom: var(--spacing-24);
+    padding-left: var(--spacing-24);
+    font-family: var(--base-font);
+    font-size: var(--font-large);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    align-items: center;    
 }
 
 .admin-item {
-  font-weight: 500;
-  font-size: 18px;
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .admin-id {
-  grid-column: 1;
+    grid-column: 1;
 }
 
 .admin-code {
-  grid-column: 2/4;
+    grid-column: 2/4;
 }
 
 .admin-name {
-  grid-column: 5/11;
+    grid-column: 5/11;
 }
 
 .admin-cat {
-  grid-column: 11/14;
+    grid-column: 11/14;
 }
 
 .admin-item-edit {
-  grid-column: 15;
+    grid-column: 15;
 }
 .admin-item-delete {
-  grid-column: 16;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+    grid-column: 16;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
+

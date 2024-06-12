@@ -1,5 +1,5 @@
-@import "../css/styles.css";
-@import "../css/styles-admin.css";
+@import '../css/styles.css';
+@import '../css/styles-admin.css';
 
 /* deja el footer fijo, pero ver como scrolear el contenido entre header y footer */
 
@@ -10,128 +10,128 @@
 }  */
 
 .main {
-  text-align: center;
-  box-sizing: border-box;
-  position: relative;
-  min-height: 60vh; /* para que en pantallas grandes no quede espacio abajo del footer */
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 60vh; /* para que en pantallas grandes no quede espacio abajo del footer */
 }
 
 h2,
 h3 {
-  font-family: var(--alternative-font);
-  text-align: center;
-  padding-top: var(--spacing-36);
+    font-family: var(--alternative-font);
+    text-align: center;
+    padding-top: var(--spacing-36);
 }
 
 h2 {
-  font-size: var(--font-jumbo);
+    font-size: var(--font-jumbo);
 }
 
 h3 {
-  font-size: var(--font-large);
+    font-size: var(--font-large);
 }
 
 label {
-  color: #000;
-  font-family: var(--base-font);
-  font-size: var(--font-medium);
-  text-align: left;
-  font-weight: 600;
-  align-self: center;
+    color: #000;
+    font-family: var(--base-font);
+    font-size: var(--font-medium);
+    text-align: left;
+    font-weight: 600;
+    align-self: center;
+}
+    
+.form--grid {    
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    padding:  var(--spacing-36) 0;     /* top/bottom y left/right */
+    row-gap: var(--spacing-24);
 }
 
-.form--grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  padding: var(--spacing-36) 0; /* top/bottom y left/right */
-  row-gap: var(--spacing-24);
-}
-
-#login--form {
-  padding-right: var(--spacing-68);
+#login--form{
+    padding-right: var(--spacing-68);
 }
 
 .form--grid > label.form__label-register {
-  grid-column: 2 / 6;
+    grid-column: 2 / 6;
 }
 
 .form--grid > label.form__label-login {
-  grid-column: 4 / 6;
-}
+    grid-column: 4 / 6;
+} 
 
 .form--grid > input {
-  grid-column: 6 / 11;
-  border: 0;
-  border-bottom: 2px solid red;
-  font-family: var(--base-font);
-  font-size: var(--font-small);
-}
+    grid-column: 6 / 11;
+    border: 0;
+    border-bottom: 2px solid red;
+    font-family: var(--base-font);
+    font-size: var(--font-small);
+} 
 
 .form--grid > input[type="submit"] {
-  font-family: var(--base-font);
-  font-size: var(--font-small);
-  color: var(--light-font-solid);
-  background-color: var(--primary-solid);
-  padding: var(--spacing-8) var(--spacing-12);
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
+    font-family: var(--base-font);
+    font-size: var(--font-small);
+    color: var(--light-font-solid);
+    background-color: var(--primary-solid);
+    padding: var(--spacing-8) var(--spacing-12);
+    cursor: pointer;
+    transition: background .3s ease-in-out; 
+} 
+
+.form--grid > input[type="submit"]:hover{
+    background-color: var(--hover-option1);
 }
 
-.form--grid > input[type="submit"]:hover {
-  background-color: var(--hover-option1);
-}
 
 .form--grid > input[type="submit"].form__submit-register {
-  grid-column: 2 / 6;
-}
+    grid-column: 2 / 6;
+} 
 
 .form--grid > input[type="submit"].form__submit-login {
-  grid-column: 5 / 7;
-}
+    grid-column: 5 / 7;
+} 
 
 .form--grid > input[type="checkbox"] {
-  border-radius: 3px;
-  border: 2px solid var(--dark-solid);
-  /*transform: scale(0.5);*/
-  justify-self: end;
-}
+    border-radius: 3px;
+    border: 2px solid var( --dark-solid);
+    /*transform: scale(0.5);*/
+    justify-self: end;
+} 
 
 .form--grid > input[type="checkbox"].form__checkbox-register {
-  grid-column: 6;
-}
+    grid-column: 6;
+} 
 
 .form--grid > input[type="checkbox"].form__checkbox-login {
-  grid-column: 7;
-}
+    grid-column: 7;
+} 
 
 .form--grid label.aceptar {
-  grid-column: 7 / 13;
-  font-size: var(--font-small);
-  padding: var(--spacing-8);
-}
+    grid-column: 7 / 13;
+    font-size: var(--font-small);
+    padding: var(--spacing-8);
+} 
 
 .form--grid label.recordarme {
-  grid-column: 8 / 13;
-  font-size: var(--font-small);
-  padding: var(--spacing-8);
-}
+    grid-column: 8 / 13;
+    font-size: var(--font-small);
+    padding: var(--spacing-8);
+} 
 
 .form--grid label.aceptar > a {
-  color: var(--secondary-solid);
-}
+    color: var(--secondary-solid);
+} 
 
 .form--grid > a {
-  font-size: var(--font-small);
-  color: var(--secondary-solid);
-  grid-column: 5 / 9;
-}
+    font-size: var(--font-small);
+    color: var(--secondary-solid);
+    grid-column: 5 / 9;
+} 
 
-input,
-textarea {
-  font-family: var(--alternative-font);
-  font-size: var(--font-small);
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 10px;
-  background-color: #e8e9e8;
+input, textarea {
+    font-family: var(--alternative-font);
+    font-size: var(--font-small);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #e8e9e8;
 }

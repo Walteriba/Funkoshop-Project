@@ -1,39 +1,20 @@
-<%- include("../partials/header", { userADMIN: true, pageTittle: "Login", css :
-"/css/styles-register-login.css" }); -%>
+<%- include("../partials/header", { userADMIN: true, pageTittle: "Login", css : "/css/styles-register-login.css" }); -%>
 
 <main class="main container">
-  <h2>INGRESAR A MI CUENTA</h2>
+    <h2>INGRESAR A MI CUENTA</h2>
 
-  <form id="login--form" class="form--grid" action="" method="POST">
-    <label for="email" class="form__label-login">Email:</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="nombre@correo.com.ar"
-      required
-    />
+    <form id="login--form" class="form--grid" action="" method="POST">
+      <label for="email" class="form__label-login">Email:</label>
+      <input type="email" id="email" name="email" placeholder="nombre@correo.com.ar" required />
 
-    <label for="contrasena" class="form__label-login">Contraseña:</label>
-    <input
-      type="password"
-      id="contrasena"
-      name="contrasena"
-      placeholder="********"
-      required
-    />
+      <label for="contrasena" class="form__label-login">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" placeholder="********" required />
 
-    <input type="submit" class="form__submit-login" value="Ingresar" />
-    <input
-      type="checkbox"
-      class="form__checkbox-login"
-      id="recordarme"
-      name="recordarme"
-      required
-    />
-    <label for="recordarme" class="recordarme">Recordarme </label>
-    <a href="">Olvidé mi contraseña</a>
-  </form>
+      <input type="submit" class="form__submit-login" value="Ingresar" />
+      <input type="checkbox" class="form__checkbox-login" id="recordarme" name="recordarme" required />
+      <label for="recordarme" class="recordarme">Recordarme </label>
+      <a href="">Olvidé mi contraseña</a>
+    </form>
 </main>
 
 <%- include("../partials/footer"); -%>

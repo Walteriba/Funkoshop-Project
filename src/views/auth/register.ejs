@@ -1,70 +1,29 @@
-<%- include("../partials/header", { userADMIN: true, pageTittle: "Register", css
-: "/css/styles-register-login.css" }); -%>
+<%- include("../partials/header", { userADMIN: true, pageTittle: "Register", css : "/css/styles-register-login.css" }); -%>
 
 <main class="main container">
-  <h2>CREA TU CUENTA</h2>
-  <h3>Completa el formulario para ser parte del mundo de los Funkos</h3>
+    <h2>CREA TU CUENTA</h2>
+    <h3>Completa el formulario para ser parte del mundo de los Funkos</h3>
 
-  <form class="form--grid" action="" method="POST">
-    <label for="nombre" class="form__label-register">Nombre:</label>
-    <input
-      type="text"
-      id="nombre"
-      name="nombre"
-      placeholder="Nombre"
-      required
-    />
+    <form class="form--grid" action="" method="POST">
+      <label for="nombre" class="form__label-register">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" required />
 
-    <label for="apellido" class="form__label-register">Apellido:</label>
-    <input
-      type="text"
-      id="apellido"
-      name="apellido"
-      placeholder="Apellido"
-      required
-    />
+      <label for="apellido" class="form__label-register">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" placeholder="Apellido" required />
 
-    <label for="email" class="form__label-register">Email:</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="nombre@correo.com.ar"
-      required
-    />
+      <label for="email" class="form__label-register">Email:</label>
+      <input type="email" id="email" name="email" placeholder="nombre@correo.com.ar" required />
 
-    <label for="contrasena" class="form__label-register">Contraseña:</label>
-    <input
-      type="password"
-      id="contrasena"
-      name="contrasena"
-      placeholder="********"
-      required
-    />
+      <label for="contrasena" class="form__label-register">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" placeholder="********" required />
 
-    <label for="repita_contrasena" class="form__label-register"
-      >Repita Contraseña:</label
-    >
-    <input
-      type="password"
-      id="repita_contrasena"
-      name="repita_contrasena"
-      placeholder="********"
-      required
-    />
+      <label for="repita_contrasena" class="form__label-register">Repita Contraseña:</label>
+      <input type="password" id="repita_contrasena" name="repita_contrasena" placeholder="********" required />
 
-    <input type="submit" class="form__submit-register" value="Registrar" />
-    <input
-      type="checkbox"
-      class="form__checkbox-register"
-      id="recordarme"
-      name="recordarme"
-      required
-    />
-    <label for="recordarme" class="aceptar"
-      >Acepto <a href="">Términos y Condiciones</a></label
-    >
-  </form>
+      <input type="submit" class="form__submit-register" value="Registrar" />
+      <input type="checkbox" class="form__checkbox-register" id="recordarme" name="recordarme" required />
+      <label for="recordarme" class="aceptar">Acepto <a href="">Términos y Condiciones</a></label>
+    </form>
 </main>
 
 <%- include("../partials/footer"); -%>
