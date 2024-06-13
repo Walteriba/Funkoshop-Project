@@ -1,18 +1,24 @@
-// Este codigo agrega la clase impar para dar el efecto invertido en las licencias de / home
-document.addEventListener("DOMContentLoaded", function () {
-  var divs = document.querySelectorAll(".coletion .coletion__cover");
+// Aplicar clase "par" a elementos impares en la colección
+function applyParClassToOddItems() {
+  const divs = document.querySelectorAll(".coletion .coletion__cover");
 
   divs.forEach(function (div, index) {
     if (index % 2 === 1) {
       div.classList.add("par");
     }
   });
-});
+}
 
-// Año en el footer
-document.addEventListener('DOMContentLoaded', (event) => {
+// Mostrar el año actual en el footer
+function setCurrentYear() {
   const yearElement = document.getElementById('current-year');
   if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
+    yearElement.textContent = new Date().getFullYear();
   }
+}
+
+// Ejecutar al cargar el DOM
+document.addEventListener("DOMContentLoaded", function () {
+  applyParClassToOddItems();
+  setCurrentYear();
 });
