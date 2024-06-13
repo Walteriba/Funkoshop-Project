@@ -22,8 +22,6 @@ const sessionStore = new MySQLStore({
     }
 }, db);
 
-app.set("trust proxy", 1);
-
 // Configurar express-session
 app.use(
   session({
@@ -41,6 +39,8 @@ app.use(
     },
   })
 );
+
+app.set("trust proxy", 1);
 
 // Importacion Error 404
 const NotFound = require("./src/utils/NotFound");
