@@ -5,13 +5,18 @@ const methodOverride = require("method-override");
 require("dotenv").config();
 
 const session = require("express-session");
+const MySQLStore = require('express-mysql-session')(session);
+const db = require('./src/config/db');
 
 app.set("trust proxy", 1);
+
+const sessionStore = new MySQLStore({}, db.conn);
 
 // Configurar express-session
 app.use(
   session({
     secret: "keyboardcat",
+    store: sessionStore,
     resave: false,
     saveUninitialized: true,
     proxy: true,
@@ -25,8 +30,6 @@ app.use(
     },
   })
 );
-
-
 
 // Importacion Error 404
 const NotFound = require("./src/utils/NotFound");
