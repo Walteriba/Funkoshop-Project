@@ -10,17 +10,19 @@ const cookieParser = require('cookie-parser');
 // Configurar cookie-parser
 app.use(cookieParser());
 
-// Configurar express-session
+app.enable('trust proxy')
+
 // Configurar express-session 
 app.use(
     session({
       secret: "keyboard cat",
       resave: false,
       saveUninitialized: true,
+      proxy: true,
       cookie: {
         secure: true,
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        sameSite: "lax", 
+        sameSite: "none", 
         name: "funkoshop-cookie" 
       }
     })
