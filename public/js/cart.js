@@ -133,30 +133,31 @@ document.querySelector(".pay").addEventListener("click", function () {
 //BORRAR CARRITO DINAMICAMENTE
 document.addEventListener("DOMContentLoaded", () => {
   function handleDeleteButtonClick() {
-    // Agregar un pequeño retraso antes de verificar y actualizar el contenido
-    setTimeout(() => {
-      const emptyCartObserver = document.querySelector(".empty_cart_observer");
-      if (emptyCartObserver && emptyCartObserver.children.length === 0) {
-        const mainCart = document.querySelector(".main_cart");
-        if (mainCart) {
-          mainCart.innerHTML = ""; // Limpiar el contenido actual
+    const emptyCartObserver = document.querySelector(".empty_cart_observer");
+    if (emptyCartObserver && emptyCartObserver.children.length === 0) {
+      const mainCart = document.querySelector(".main_cart");
+      if (mainCart) {
+        mainCart.innerHTML = ""; // Limpiar el contenido actual
 
-          // Agregar el nuevo contenido para el carrito vacío
-          mainCart.innerHTML = `
-            <h1 class="empty_cart_tittle">OH, CUANTO VACÍO</h1>
-            <div class="empty_cart">
-              <img class="empty_cart_img" src="/images/varios/shopping-cart.jpg" alt="Carrito vacío">
-            </div>
-            <div class="empty_cart_shop_link"><a class="empty_cart_tittle" href="/shop?filter=all">IR A COMPRAR</a></div>
-          `;
-        }
+        // Agregar el nuevo contenido para el carrito vacío
+        mainCart.innerHTML = `
+          <h1 class="empty_cart_tittle">OH, CUANTO VACÍO</h1>
+          <div class="empty_cart">
+            <img class="empty_cart_img" src="/images/varios/shopping-cart.jpg" alt="Carrito vacío">
+          </div>
+          <div class="empty_cart_shop_link"><a class="empty_cart_tittle" href="/shop?filter=all">IR A COMPRAR</a></div>
+        `;
       }
-    }, 500); // Retraso de 100 milisegundos, puedes ajustar este valor según sea necesario
+    }
   }
 
   // Obtener todos los botones con la clase delete_observer y asignarles un listener
   const deleteButtons = document.querySelectorAll(".delete_observer");
+  if (deleteButtons.length === 0) {
+    console.warn("No delete buttons found");
+  }
   deleteButtons.forEach((button) => {
     button.addEventListener("click", handleDeleteButtonClick);
   });
 });
+
