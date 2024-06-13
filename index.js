@@ -21,6 +21,8 @@ app.use(
       secure: true,
       maxAge: 1000 * 60 * 60 * 48,
       sameSite: "none",
+      Domain: "https://funkoshop-project.vercel.app",
+      path: "/",
     },
   })
 );
