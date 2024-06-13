@@ -27,7 +27,7 @@ const shopControllers = {
   itemPOST: async (req, res) => {
     const id = req.params.id;
     const quantity = req.body.quantity;
-    await addItemCart(req, id, quantity);
+    await addItemCart (id, quantity);
     res.redirect("/shop/cart");
   },
 

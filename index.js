@@ -4,27 +4,27 @@ const path = require("path");
 const methodOverride = require("method-override");
 require("dotenv").config();
 
-const session = require("express-session");
+// const session = require("express-session");
 
-app.set("trust proxy", 1);
+// app.set("trust proxy", 1);
 
-// Configurar express-session
-app.use(
-  session({
-    secret: "keyboardcat",
-    resave: false,
-    saveUninitialized: true,
-    proxy: true,
-    name: "funkoshop-cookie",
-    cookie: {
-      httpOnly: true,
-      secure: true,
-      maxAge: 1000 * 60 * 60 * 48,
-      sameSite: "none",
-      domain: '.funkoshop-project.vercel.app'
-    },
-  })
-);
+// // Configurar express-session
+// app.use(
+//   session({
+//     secret: "keyboardcat",
+//     resave: false,
+//     saveUninitialized: true,
+//     proxy: true,
+//     name: "funkoshop-cookie",
+//     cookie: {
+//       httpOnly: true,
+//       secure: true,
+//       maxAge: 1000 * 60 * 60 * 48,
+//       sameSite: "none",
+//       domain: '.funkoshop-project.vercel.app'
+//     },
+//   })
+// );
 
 // Importacion Error 404
 const NotFound = require("./src/utils/NotFound");
@@ -61,11 +61,11 @@ app.use("/admin", adminRoutes);
 // Manejo de error 404
 app.use(NotFound);
 
-// app.listen(process.env.APP_PORT, () =>
-//   console.log(
-//     `Servidor de BlueLabel funcionando en http://localhost:${process.env.APP_PORT}`
-//   )
-// );
+app.listen(process.env.APP_PORT, () =>
+  console.log(
+    `Servidor de BlueLabel funcionando en http://localhost:${process.env.APP_PORT}`
+  )
+);
 
 // Export para vercel
 module.exports = app;

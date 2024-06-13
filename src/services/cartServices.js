@@ -1,64 +1,60 @@
 const { getOne } = require("../models/itemsModels");
+const shoppingCartModels = require("../models/shoppingCartModels");
 
-// Initialize shoppingCart as an empty array, since we will use session for storage
-
-const getCart = (req) => {
-  // Check if shopping cart exists in session, otherwise initialize as empty array
-  if (!req.session.shoppingCart) {
-    req.session.shoppingCart = [];
-  }
-  return req.session.shoppingCart;
-};
-
-const addItemCart = async (req, id, quantity) => {
+const getCart = async (userId) => {
   try {
-    const item = await getOne({ product_id: id });
-    const data = {
-      cart_quantity: Number(quantity),
-      product_id: item.product_id,
-      product_name: item.product_name,
-      product_description: item.product_description,
-      price: item.price,
-      sku: item.sku,
-      image_front: item.image_front,
-      image_back: item.image_back,
-      licence_id: item.licence_id,
-      category_id: item.category_id,
-      licence_name: item.licence_name,
-      licence_description: item.licence_description,
-      category_name: item.category_name,
-      category_description: item.category_description,
-    };
-    req.session.shoppingCart.push(data);
+      const cartItems = await shoppingCartModels.getCart(userId); // Obtener todos los productos del carrito desde la base de datos
+      const extendedCart = [];
+
+      // Iterar sobre cada producto en el carrito
+      for (const cartItem of cartItems) {
+          const itemDetails = await getOne({ product_id: cartItem.product_id }); // Obtener detalles del producto
+          if (itemDetails) {
+              const data = {
+                  cart_quantity: cartItem.cart_quantity,
+                  product_id: itemDetails.product_id,
+                  product_name: itemDetails.product_name,
+                  product_description: itemDetails.product_description,
+                  price: itemDetails.price,
+                  sku: itemDetails.sku,
+                  image_front: itemDetails.image_front,
+                  image_back: itemDetails.image_back,
+                  licence_id: itemDetails.licence_id,
+                  category_id: itemDetails.category_id,
+                  licence_name: itemDetails.licence_name,
+                  licence_description: itemDetails.licence_description,
+                  category_name: itemDetails.category_name,
+                  category_description: itemDetails.category_description,
+              };
+              extendedCart.push(data); // Agregar detalles extendidos al nuevo array
+          } else {
+              console.error(`No se encontró el producto con product_id: ${cartItem.product_id}`);
+          }
+      }
+
+      return extendedCart; // Devolver el nuevo array con detalles extendidos
   } catch (error) {
-    console.error("Error consiguiendo el item:", error);
+      console.error("Error obteniendo el carrito:", error);
+      throw error; // Manejar el error según sea necesario
   }
 };
 
-const updateCart = (req, id, quantity) => {
-  const _product_id = parseInt(id);
-  const _quantity = parseInt(quantity);
-  const index = req.session.shoppingCart.findIndex(
-    (item) => item.product_id === _product_id
-  );
-  if (index !== -1) {
-    req.session.shoppingCart[index].cart_quantity = _quantity;
-  }
+const addItemCart = async (userId, productId, quantity) => {
+    return await shoppingCartModels.addItemCart(userId, productId, quantity);
 };
 
-const deleteItemToCart = (req, id) => {
-  const _product_id = parseInt(id);
-  const index = req.session.shoppingCart.findIndex(
-    (item) => item.product_id === _product_id
-  );
-  if (index !== -1) {
-    req.session.shoppingCart.splice(index, 1);
-  }
+const updateCart = async (userId, productId, quantity) => {
+    return await shoppingCartModels.updateCart(userId, productId, quantity);
+};
+
+const deleteItemToCart = async (userId, productId) => {
+    return await shoppingCartModels.deleteItemToCart(userId, productId);
 };
 
 module.exports = {
-  getCart,
-  addItemCart,
-  updateCart,
-  deleteItemToCart,
+    getCart,
+    addItemCart,
+    updateCart,
+    deleteItemToCart,
 };
+
