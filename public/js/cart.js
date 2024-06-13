@@ -2,7 +2,7 @@
 const addButtonList = document.querySelectorAll(".custom-increment");
 const subtractButtonList = document.querySelectorAll(".custom-decrement");
 const quantityInputList = document.querySelectorAll(".custom-text");
-const deleteButtonList = document.querySelectorAll(".delete_item_svg");
+const deleteButtonList = document.querySelectorAll(".delete_observer");
 
 addButtonList.forEach((addButton, index) => {
   const subtractButton = subtractButtonList[index];
@@ -134,7 +134,7 @@ document.querySelector(".pay").addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", () => {
   function handleDeleteButtonClick() {
     const emptyCartObserver = document.querySelector(".empty_cart_observer");
-    if (emptyCartObserver && emptyCartObserver.children.length === 0) {
+    if (emptyCartObserver.children.length === 0) {
       const mainCart = document.querySelector(".main_cart");
       if (mainCart) {
         mainCart.innerHTML = ""; // Limpiar el contenido actual
