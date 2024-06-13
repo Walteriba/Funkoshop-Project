@@ -5,7 +5,9 @@ const methodOverride = require("method-override");
 require("dotenv").config();
 
 const session = require("express-session");
-const MySQLStore = require('express-mysql-session')(session); 
+const MySQLStore = require('express-mysql-session')(session);
+
+const db = require('./src/config/db');
 
 const sessionStore = new MySQLStore({
     expiration: 5184000000,
