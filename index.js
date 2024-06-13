@@ -11,15 +11,20 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 // Configurar express-session
-app.use(session({
-    secret: 'clavesupersecreta1234', // Cambia esto por una clave secreta más segura
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        secure: true, // Cambia a true si estás usando HTTPS
-        maxAge: 24 * 60 * 60 * 1000 // Tiempo de vida de la sesión en milisegundos (1 día)
-    }
-}));
+// Configurar express-session 
+app.use(
+    session({
+      secret: "keyboard cat",
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        secure: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        sameSite: "lax", 
+        name: "funkoshop-cookie" 
+      }
+    })
+  );
 
 // Importacion Error 404
 const NotFound = require("./src/utils/NotFound")
