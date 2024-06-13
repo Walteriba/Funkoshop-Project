@@ -5,10 +5,6 @@ const methodOverride = require("method-override");
 require("dotenv").config();
 
 const session = require("express-session");
-const cookieParser = require("cookie-parser");
-
-// Configurar cookie-parser
-app.use(cookieParser());
 
 app.set("trust proxy", 1);
 
