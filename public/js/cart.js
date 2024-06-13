@@ -131,50 +131,32 @@ document.querySelector(".pay").addEventListener("click", function () {
 });
 
 //BORRAR CARRITO DINAMICAMENTE
-document.addEventListener('DOMContentLoaded', () => {
-  // Verificación inicial
-  console.log("DOM completamente cargado y parseado");
-
+document.addEventListener("DOMContentLoaded", () => {
   function handleDeleteButtonClick() {
-    // Verificar si el div empty_cart_observer existe y está vacío
-    const emptyCartObserver = document.querySelector('.empty_cart_observer');
-    console.log("Empty Cart Observer encontrado:", emptyCartObserver);
+    // Agregar un pequeño retraso antes de verificar y actualizar el contenido
+    setTimeout(() => {
+      const emptyCartObserver = document.querySelector(".empty_cart_observer");
+      if (emptyCartObserver && emptyCartObserver.children.length === 0) {
+        const mainCart = document.querySelector(".main_cart");
+        if (mainCart) {
+          mainCart.innerHTML = ""; // Limpiar el contenido actual
 
-    if (emptyCartObserver && emptyCartObserver.children.length === 0) {
-      console.log("Empty Cart Observer está vacío.");
-
-      // Si está vacío, seleccionar el div main_cart y limpiar su contenido
-      const mainCart = document.querySelector('.main_cart');
-      console.log("Main Cart encontrado:", mainCart);
-
-      if (mainCart) {
-        mainCart.innerHTML = ''; // Limpiar el contenido actual
-        console.log("Main Cart contenido limpiado.");
-
-        // Agregar el nuevo contenido para el carrito vacío
-        mainCart.innerHTML = `
-          <h1 class="empty_cart_tittle">OH, CUANTO VACÍO</h1>
-          <div class="empty_cart">
-            <img class="empty_cart_img" src="/images/varios/shopping-cart.jpg" alt="Carrito vacío">
-          </div>
-          <div class="empty_cart_shop_link"><a class="empty_cart_tittle" href="/shop?filter=all">IR A COMPRAR</a></div>
-        `;
-        console.log("Contenido para carrito vacío agregado.");
-      } else {
-        console.warn("Main Cart no encontrado.");
+          // Agregar el nuevo contenido para el carrito vacío
+          mainCart.innerHTML = `
+            <h1 class="empty_cart_tittle">OH, CUANTO VACÍO</h1>
+            <div class="empty_cart">
+              <img class="empty_cart_img" src="/images/varios/shopping-cart.jpg" alt="Carrito vacío">
+            </div>
+            <div class="empty_cart_shop_link"><a class="empty_cart_tittle" href="/shop?filter=all">IR A COMPRAR</a></div>
+          `;
+        }
       }
-    } else {
-      console.log("Empty Cart Observer no está vacío o no encontrado.");
-    }
+    }, 500); // Retraso de 100 milisegundos, puedes ajustar este valor según sea necesario
   }
 
   // Obtener todos los botones con la clase delete_observer y asignarles un listener
-  const deleteButtons = document.querySelectorAll('.delete_observer');
-  console.log("Botones delete_observer encontrados:", deleteButtons);
-
-  deleteButtons.forEach(button => {
-    button.addEventListener('click', handleDeleteButtonClick);
-    console.log("Listener agregado a un botón delete_observer.");
+  const deleteButtons = document.querySelectorAll(".delete_observer");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", handleDeleteButtonClick);
   });
 });
-
