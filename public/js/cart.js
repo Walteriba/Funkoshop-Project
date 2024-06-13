@@ -129,3 +129,36 @@ document.querySelector(".pay").addEventListener("click", function () {
   // Mostrar una alerta cuando se hace clic en el botón
   alert("¡Gracias por interactuar con esta demo!");
 });
+
+
+//BORRAR CARRITO DINAMICAMENTE
+// Función para manejar el evento click en los botones con clase delete_observer
+function handleDeleteButtonClick() {
+  // Verificar si el div empty_cart_observer está vacío
+  const emptyCartObserver = document.querySelector('.empty_cart_observer');
+  if (emptyCartObserver && emptyCartObserver.children.length === 0) {
+    // Si está vacío, seleccionar el div main_cart y limpiar su contenido
+    const mainCart = document.querySelector('.main_cart');
+    if (mainCart) {
+      mainCart.innerHTML = ''; // Limpiar el contenido actual
+
+      // Agregar el nuevo contenido para el carrito vacío
+      mainCart.innerHTML = `
+        <h1 class="empty_cart_tittle">OH, CUANTO VACÍO</h1>
+        <div class="empty_cart">
+          <img class="empty_cart_img" src="/images/varios/shopping-cart.jpg" alt="Carrito vacío">
+        </div>
+        <div class="empty_cart_shop_link"><a class="empty_cart_tittle" href="/shop?filter=all">IR A COMPRAR</a></div>
+      `;
+    }
+  }
+}
+
+// Obtener todos los botones con la clase delete_observer y asignarles un listener
+const deleteButtons = document.querySelectorAll('.delete_observer');
+deleteButtons.forEach(button => {
+  button.addEventListener('click', handleDeleteButtonClick);
+});
+
+
+

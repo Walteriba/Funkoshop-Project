@@ -233,7 +233,7 @@ button {
 .empty_cart_shop_link {
   display: flex;
   justify-content: center;
-  transition: color 0.2s linear 0.2s;
+  transition: color 0.1s linear 0.1s;
 }
 
 .empty_cart_shop_link:hover {
