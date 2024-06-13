@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const session = require("express-session");
 
-app.enable('trust proxy')
+app.set("trust proxy", 1);
 
 // Configurar express-session
 app.use(
