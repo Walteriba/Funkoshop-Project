@@ -4,6 +4,23 @@ const path = require("path");
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+// Configurar cookie-parser
+app.use(cookieParser());
+
+// Configurar express-session
+app.use(session({
+    secret: 'clavesupersecreta1234', // Cambia esto por una clave secreta más segura
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: false, // Cambia a true si estás usando HTTPS
+        maxAge: 24 * 60 * 60 * 1000 // Tiempo de vida de la sesión en milisegundos (1 día)
+    }
+}));
+
 // Importacion Error 404
 const NotFound = require("./src/utils/NotFound")
 
