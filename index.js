@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const session = require("express-session");
 
-app.set("trust proxy", 1);
+app.set('trust proxy', 1);
 
 // Configurar express-session
 app.use(
@@ -18,7 +18,7 @@ app.use(
     cookie: {
       secure: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite:'none',
+      sameSite:'lax',
       name: "funkoshop-cookie",
     },
   })
