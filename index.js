@@ -17,10 +17,11 @@ app.use(
     proxy: true,
     name: "funkoshop-cookie",
     cookie: {
+      hhtpOnly: true,
       secure: true,
       maxAge: 1000 * 60 * 60 * 48,
       sameSite: "none",
-      domain: '.funkoshop-project.vercel.app'
+      domain: 'funkoshop-project.vercel.app'
     },
   })
 );
