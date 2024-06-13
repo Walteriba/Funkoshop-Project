@@ -6,16 +6,17 @@ require("dotenv").config();
 
 const session = require("express-session");
 
+app.set("trust proxy", 1);
+
 // Configurar express-session
 app.use(
   session({
     secret: "keyboard cat",
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     proxy: true,
     name: "funkoshop-cookie",
     cookie: {
-      httpOnly: true,
       secure: true,
       maxAge: 1000 * 60 * 60 * 48,
       sameSite: "none",
@@ -23,7 +24,7 @@ app.use(
   })
 );
 
-app.set("trust proxy", 1);
+
 
 // Importacion Error 404
 const NotFound = require("./src/utils/NotFound");
