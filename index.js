@@ -5,28 +5,11 @@ const methodOverride = require("method-override");
 require("dotenv").config();
 
 const session = require("express-session");
-const MySQLStore = require('express-mysql-session')(session);
-
-const db = require('./src/config/db');
-
-const sessionStore = new MySQLStore({
-    expiration: 5184000000,
-    createDatabaseTable: true,
-    schema: {
-        tableName: 'sessions',
-        columnNames: {
-            session_id: 'session_id',
-            expires: 'expires',
-            data: 'data'
-        }
-    }
-}, db);
 
 // Configurar express-session
 app.use(
   session({
     secret: "keyboard cat",
-    store: sessionStore,
     resave: false,
     saveUninitialized: true,
     proxy: true,
