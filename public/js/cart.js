@@ -131,13 +131,25 @@ document.querySelector(".pay").addEventListener("click", function () {
 });
 
 //BORRAR CARRITO DINAMICAMENTE
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
+  // Verificación inicial
+  console.log("DOM completamente cargado y parseado");
+
   function handleDeleteButtonClick() {
-    const emptyCartObserver = document.querySelector(".empty_cart_observer");
+    // Verificar si el div empty_cart_observer existe y está vacío
+    const emptyCartObserver = document.querySelector('.empty_cart_observer');
+    console.log("Empty Cart Observer encontrado:", emptyCartObserver);
+
     if (emptyCartObserver && emptyCartObserver.children.length === 0) {
-      const mainCart = document.querySelector(".main_cart");
+      console.log("Empty Cart Observer está vacío.");
+
+      // Si está vacío, seleccionar el div main_cart y limpiar su contenido
+      const mainCart = document.querySelector('.main_cart');
+      console.log("Main Cart encontrado:", mainCart);
+
       if (mainCart) {
-        mainCart.innerHTML = ""; // Limpiar el contenido actual
+        mainCart.innerHTML = ''; // Limpiar el contenido actual
+        console.log("Main Cart contenido limpiado.");
 
         // Agregar el nuevo contenido para el carrito vacío
         mainCart.innerHTML = `
@@ -147,13 +159,22 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div class="empty_cart_shop_link"><a class="empty_cart_tittle" href="/shop?filter=all">IR A COMPRAR</a></div>
         `;
+        console.log("Contenido para carrito vacío agregado.");
+      } else {
+        console.warn("Main Cart no encontrado.");
       }
+    } else {
+      console.log("Empty Cart Observer no está vacío o no encontrado.");
     }
   }
 
   // Obtener todos los botones con la clase delete_observer y asignarles un listener
-  const deleteButtons = document.querySelectorAll(".delete_observer");
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", handleDeleteButtonClick);
+  const deleteButtons = document.querySelectorAll('.delete_observer');
+  console.log("Botones delete_observer encontrados:", deleteButtons);
+
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', handleDeleteButtonClick);
+    console.log("Listener agregado a un botón delete_observer.");
   });
 });
+
