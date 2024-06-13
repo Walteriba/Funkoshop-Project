@@ -12,7 +12,7 @@ app.set("trust proxy", 1);
 app.use(
   session({
     secret: "keyboard cat",
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     proxy: true,
     name: "funkoshop-cookie",
@@ -20,6 +20,7 @@ app.use(
       secure: true,
       maxAge: 1000 * 60 * 60 * 48,
       sameSite: "none",
+      domain: '.domain.com'
     },
   })
 );
