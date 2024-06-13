@@ -11,7 +11,7 @@ app.set("trust proxy", 1);
 // Configurar express-session
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: "keyboardcat",
     resave: false,
     saveUninitialized: true,
     proxy: true,
@@ -20,7 +20,7 @@ app.use(
       secure: true,
       maxAge: 1000 * 60 * 60 * 48,
       sameSite: "none",
-      domain: '.domain.com'
+      domain: '.funkoshop-project.vercel.app'
     },
   })
 );
