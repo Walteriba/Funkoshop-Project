@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 // Configurar cookie-parser
 app.use(cookieParser());
 
-app.enable('trust proxy')
+app.set("trust proxy", 1)
 
 // Configurar express-session 
 app.use(
@@ -20,6 +20,7 @@ app.use(
       saveUninitialized: true,
       proxy: true,
       cookie: {
+        httpOnly: true,
         secure: true,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         sameSite: "none", 
