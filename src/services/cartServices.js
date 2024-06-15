@@ -51,10 +51,15 @@ const deleteItemToCart = async (userId, productId) => {
     return await shoppingCartModels.deleteItemToCart(userId, productId);
 };
 
+const deleteCart = async (userId) => {
+    return await shoppingCartModels.deleteCart(userId);
+};
+
 module.exports = {
     getCart,
     addItemCart,
     updateCart,
     deleteItemToCart,
+    deleteCart,
 };
 

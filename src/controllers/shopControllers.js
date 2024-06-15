@@ -8,6 +8,7 @@ const {
   addItemCart,
   updateCart,
   deleteItemToCart,
+  deleteCart,
 } = require("../services/cartServices");
 
 const shopControllers = {
@@ -49,8 +50,9 @@ const shopControllers = {
     res.redirect("/shop/cart");
   },
 
-  cartPOST: (req, res) => {
-    res.send("VERBO:POST Ruta para hacer la compra");
+  cartPOST: async (req, res) => {
+    await deleteCart(req);
+    res.send("VERBO:POST Ruta para hacer la compra, carrito eliminado"); // por ahora solo va a eliminar el carrito por completo
   },
 };
 

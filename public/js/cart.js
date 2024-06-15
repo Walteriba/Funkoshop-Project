@@ -14,7 +14,9 @@ function updateTotal() {
 
   cartItems.forEach((item, i) => {
     const cartQuantity = item.querySelector(".custom-text").value;
-    const price = parseFloat(item.querySelector(".cart_item_price").innerText.split("$")[1]);
+    const price = parseFloat(
+      item.querySelector(".cart_item_price").innerText.split("$")[1]
+    );
     const totalSpan = totalElements[i];
 
     // Calcular el total de cada elemento con dos decimales
@@ -52,7 +54,8 @@ function sendUpdateToBackend(index, newQuantity) {
     // body: JSON.stringify({ quantity: newQuantity }), // Comentado porque la cantidad ya se envía en la URL
   })
     .then((response) => {
-      if (!response.ok) throw new Error(`Error en la solicitud: ${response.status}`);
+      if (!response.ok)
+        throw new Error(`Error en la solicitud: ${response.status}`);
       return response.json();
     })
     .then((data) => console.log(data))
@@ -70,7 +73,8 @@ function deleteItemToBacked(productId) {
     },
   })
     .then((response) => {
-      if (!response.ok) throw new Error(`Error en la solicitud: ${response.status}`);
+      if (!response.ok)
+        throw new Error(`Error en la solicitud: ${response.status}`);
       return response.json();
     })
     .then((data) => console.log(data))
@@ -101,7 +105,8 @@ addButtonList.forEach((addButton, index) => {
 
   // Evitar que se pongan números negativos en el campo de cantidad
   quantityInput.addEventListener("change", () => {
-    quantityInput.value = Number(quantityInput.value) < 1 ? 1 : Number(quantityInput.value);
+    quantityInput.value =
+      Number(quantityInput.value) < 1 ? 1 : Number(quantityInput.value);
     sendUpdateToBackend(index, quantityInput.value);
     updateTotal();
   });
@@ -118,23 +123,29 @@ addButtonList.forEach((addButton, index) => {
   });
 });
 
+// LIMPIAR CARRO Y PONER IMAGEN DE CARRO VACIO
+const empty_cart = () => {
+  const mainCart = document.querySelector(".main_cart"); // Find the element with class "main_cart"
+
+  if (mainCart) {
+    // Check if such element exists
+    mainCart.innerHTML = ""; // Clear the current content of mainCart
+
+    // Add new HTML content for the empty cart
+    mainCart.innerHTML = `
+      <h1 class="empty_cart_title">OH, CUÁNTO VACÍO</h1>
+      <div class="empty_cart">
+        <img class="empty_cart_img" src="/images/varios/shopping-cart.svg" alt="Carrito vacío">
+      </div>
+      <div class="empty_cart_shop_link"><a class="empty_cart_title" href="/shop?filter=all">IR A COMPRAR</a></div>`;
+  }
+};
+
 // Función para manejar la eliminación dinámica del carrito
 function handleDeleteButtonClick() {
   const emptyCartObserver = document.querySelector(".empty_cart_observer");
   if (emptyCartObserver && emptyCartObserver.children.length === 0) {
-    const mainCart = document.querySelector(".main_cart");
-    if (mainCart) {
-      mainCart.innerHTML = ""; // Limpiar el contenido actual
-
-      // Agregar el nuevo contenido para el carrito vacío
-      mainCart.innerHTML = `
-        <h1 class="empty_cart_tittle">OH, CUANTO VACÍO</h1>
-        <div class="empty_cart">
-          <img class="empty_cart_img" src="/images/varios/shopping-cart.jpg" alt="Carrito vacío">
-        </div>
-        <div class="empty_cart_shop_link"><a class="empty_cart_tittle" href="/shop?filter=all">IR A COMPRAR</a></div>
-      `;
-    }
+    empty_cart();
   }
 }
 
@@ -144,7 +155,23 @@ function handleDeleteButtonClick() {
 document.addEventListener("DOMContentLoaded", () => {
   // Agregar event listener al botón de pagar
   document.querySelector(".pay").addEventListener("click", function () {
+    const apiUrl = "/shop/cartdelete/";
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok)
+          throw new Error(`Error en la solicitud: ${response.status}`);
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error en la solicitud:", error));
+
     alert("¡Gracias por interactuar con esta demo!");
+    empty_cart();
   });
 
   // Asignar el manejador de clics a los botones de eliminación del carrito
@@ -152,5 +179,3 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", handleDeleteButtonClick);
   });
 });
-
-

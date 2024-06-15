@@ -215,7 +215,7 @@ button {
   justify-content: center;
 }
 
-.empty_cart_tittle {
+.empty_cart_title {
   text-align: center;
   font: var(--alternative-font);
   font-weight: 700;

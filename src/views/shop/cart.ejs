@@ -62,6 +62,8 @@
       subtotal += item.cart_quantity * item.price
     }); 
     %>
+    <div style="display: flex;">
+
     <section class="resume">
       <h1 class="cart_tittle" id="resume_tittle">RESUMEN</h1>
       <div class="rad_shad_container">
@@ -72,14 +74,15 @@
       </div>
       <button class="pay">IR A PAGAR</button>    
     </section>
+  </div>
  
     <% } else { %>
-      <h1 class="empty_cart_tittle">OH, CUANTO VACÍO</h1>
+      <h1 class="empty_cart_title">OH, CUANTO VACÍO</h1>
       <div class="empty_cart">
         
-        <img class="empty_cart_img" src="/images/varios/shopping-cart.jpg" alt="Carrito vacío">
+        <img class="empty_cart_img" src="/images/varios/shopping-cart.svg" alt="Carrito vacío">
       </div>
-      <div class="empty_cart_shop_link"><a class="empty_cart_tittle"  href="/shop?filter=all">IR A COMPRAR</a></div>
+      <div class="empty_cart_shop_link"><a class="empty_cart_title"  href="/shop?filter=all">IR A COMPRAR</a></div>
     <% }; %>
 
 

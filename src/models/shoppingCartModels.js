@@ -54,9 +54,20 @@ const deleteItemToCart = async (userId, productId) => {
   }
 };
 
+const deleteCart = async (userId) => {
+  try {
+    await conn.query("DELETE FROM shopping_cart WHERE user_id = 1", [userId]); // user id hardcoded 
+  } catch (error) {
+    return errorDBhandler(error);
+  } finally {
+    conn.releaseConnection();
+  }
+};
+
 module.exports = {
   getCart,
   addItemCart,
   updateCart,
   deleteItemToCart,
+  deleteCart,
 };
