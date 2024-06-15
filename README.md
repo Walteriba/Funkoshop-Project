@@ -34,7 +34,7 @@ Check out the live demo [here](https://funkoshop-project.vercel.app).
    npm install
    ```
 4. **Set up the database**:
-   - Create a MySQL database named `funkoshop`.
+   - Create a MySQL database named `funkoshop` with the sql file provided in the repository.
    - Update the `.env` file with your database credentials.
    ```.env
       APP_PORT = 4000
