@@ -1,12 +1,22 @@
-# 🎉 Funkoshop Ecommerce Project
+<p align="center">
+  <img src="https://img.icons8.com/external-tal-revivo-duo-tal-revivo/100/external-markdown-a-lightweight-markup-language-with-plain-text-formatting-syntax-logo-duo-tal-revivo.png" width="100" />
+</p>
+<p align="center">
+    <h1 align="center">FUNKOSHOP-PROJECT</h1>
+</p>
+<p align="center">
+	<img src="https://img.shields.io/github/last-commit/Walteriba/Funkoshop-Project?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+	<img src="https://img.shields.io/github/languages/top/Walteriba/Funkoshop-Project?style=flat&color=0080ff" alt="repo-top-language">
+	<img src="https://img.shields.io/github/languages/count/Walteriba/Funkoshop-Project?style=flat&color=0080ff" alt="repo-language-count">
+<p>
+
+<p align="center">
+  🌐 <a href="https://funkoshop-project.vercel.app">LIVE DEMO</a>   
+</p>
 
 Welcome to the **Funkoshop Project**! This is an ecommerce application for Funko Pop! figures, developed during the Codo a Codo course. The project leverages a full stack including MySQL, Node.js, Express, and EJS.
 
 Designs: [FIGMA](https://www.figma.com/file/IjTSeE2BpRd5Gk9VakNIhC/Challenge-Integrador---Funkoshop?type=design&node-id=19905-623&mode=design&t=FY9gH9ROImqA6x5j-0)
-
-## 🌐 Live Demo
-
-Check out the live demo [here](https://funkoshop-project.vercel.app).
 
 ## 🌟 Features
 
